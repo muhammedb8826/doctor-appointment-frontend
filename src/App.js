@@ -3,6 +3,8 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import MyReservations from './components/MyReservations';
 import AddDoctors from './components/AddDoctors';
+import Reserve from './components/Reserve';
+import Delete from './components/Delete';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/my-reservations" element={<MyReservations />} />
           <Route path="/add-doctors" element={<AddDoctors />} />
+          <Route path="/reserve" element={<Reserve />} />
+          <Route path="/delete" element={<Delete />} />
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </div>

@@ -24,3 +24,10 @@
   width: 80%;
   border: 1px solid red;
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  border: 1px solid blue;
+  align-items: center;
+}

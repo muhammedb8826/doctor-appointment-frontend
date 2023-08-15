@@ -15,6 +15,12 @@ const Navbar = () => (
         <li className="link-item">
           <Link to="/add-doctors">ADD DOCTORS</Link>
         </li>
+        <li className="link-item">
+          <Link to="/reserve">RESERVE</Link>
+        </li>
+        <li className="link-item">
+          <Link to="/delete">DELETE DOCTORS</Link>
+        </li>
       </ul>
     </nav>
   </header>
