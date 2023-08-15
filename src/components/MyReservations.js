@@ -1,5 +1,5 @@
 const MyReservations = () => (
-  <div>
+  <div className="my-reservations">
     <h1>My Reservations</h1>
   </div>
 );

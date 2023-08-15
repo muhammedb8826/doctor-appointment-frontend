@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import '../styles/navbar.css';
 import { useState } from 'react';
 
@@ -11,26 +11,26 @@ const Navbar = () => {
   return (
     <header>
       <nav className="navbar">
-        <Link to="/" className="logo"><img src="logo.png" alt="logo" /></Link>
+        <NavLink to="/" className="logo"><img src="logo.png" alt="logo" /></NavLink>
         <button onClick={togglMenu} type="button" className="menu-toggle" id="mobile-menu">
           <span className="bar" />
           <span className="bar" />
         </button>
         <ul className={`navigations ${toggle === true ? 'active' : ''}`}>
-          <li className="link-item">
-            <Link to="/" onClick={togglMenu}>DOCTORS</Link>
+          <li className="nav-item">
+            <NavLink to="/" exact className={({ isActive }) => (isActive ? 'active-link' : 'inactive-link')} onClick={togglMenu}>DOCTORS</NavLink>
           </li>
-          <li className="link-item">
-            <Link to="/my-reservations" onClick={togglMenu}>MY RESERVATIONS</Link>
+          <li className="nav-item">
+            <NavLink to="/my-reservations" className={({ isActive }) => (isActive ? 'active-link' : 'inactive-link')} onClick={togglMenu}>MY RESERVATIONS</NavLink>
           </li>
-          <li className="link-item">
-            <Link to="/add-doctors" onClick={togglMenu}>ADD DOCTORS</Link>
+          <li className="nav-item">
+            <NavLink to="/add-doctors" className={({ isActive }) => (isActive ? 'active-link' : 'inactive-link')} onClick={togglMenu}>ADD DOCTORS</NavLink>
           </li>
-          <li className="link-item">
-            <Link to="/reserve" onClick={togglMenu}>RESERVE</Link>
+          <li className="nav-item">
+            <NavLink to="/reserve" className={({ isActive }) => (isActive ? 'active-link' : 'inactive-link')} onClick={togglMenu}>RESERVE</NavLink>
           </li>
-          <li className="link-item">
-            <Link to="/delete" onClick={togglMenu}>DELETE DOCTORS</Link>
+          <li className="nav-item">
+            <NavLink to="/delete" className={({ isActive }) => (isActive ? 'active-link' : 'inactive-link')} onClick={togglMenu}>DELETE DOCTORS</NavLink>
           </li>
         </ul>
       </nav>
