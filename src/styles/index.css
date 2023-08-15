@@ -1,0 +1,26 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  background-color: #fff;
+  color: #2c3e50;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar {
+  border: 1px solid greenyellow;
+}
+
+.components {
+  width: 80%;
+  border: 1px solid red;
+}
