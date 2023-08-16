@@ -15,6 +15,7 @@ function App() {
       <div className="components">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/doctors" element={<Home />} />
           <Route path="/doctors/:id" element={<DoctorDetails />} />
           <Route path="/my-reservations" element={<MyReservations />} />
           <Route path="/add-doctors" element={<AddDoctors />} />

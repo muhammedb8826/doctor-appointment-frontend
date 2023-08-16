@@ -9,28 +9,39 @@ const initialState = {
 
 const url = 'http://localhost:3000/api/v1/users';
 
-export const getUsers = createAsyncThunk('users/getUsers', async (name, username) => {
+export const createUsers = createAsyncThunk('users/getUsers', async ({ name, username }) => {
   try {
     const response = await axios.post(url, { name, username });
     return response.data;
   } catch (error) {
+    error.message = 'Username already exists';
+    return error.message;
+  }
+});
+
+export const getUsers = createAsyncThunk('users/getUsers', async () => {
+  try {
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error) {
+    error.message = 'Username already exists';
     return error.message;
   }
 });
 
 const userSlice = createSlice({
-  name: 'users',
+  name: 'user',
   initialState,
   reducers: {},
   extraReducers: {
-    [getUsers.pending]: (state) => {
+    [createUsers.pending]: (state) => {
       state.isLoading = true;
     },
-    [getUsers.fulfilled]: (state, action) => {
+    [createUsers.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.data = action.payload;
     },
-    [getUsers.rejected]: (state, action) => {
+    [createUsers.rejected]: (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
     },

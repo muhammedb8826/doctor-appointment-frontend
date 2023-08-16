@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { LuPlay } from 'react-icons/lu';
 import { NavLink } from 'react-router-dom';
 import { getDoctors } from '../redux/doctors/doctorSlice';
-import SignUp from '../auth/SignUp';
+import SignUp from '../auth/signUp';
 
 const Doctors = () => {
   const [index, setIndex] = useState(0);

@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-import { getUsers } from '../redux/users/userSlice';
+import { useNavigate } from 'react-router-dom';
+import { createUsers } from '../redux/users/userSlice';
 
 const SignUp = () => {
   const [name, setName] = useState('');
@@ -8,12 +9,16 @@ const SignUp = () => {
   const [message, setMessage] = useState('');
   const dispatch = useDispatch();
   const error = useSelector((state) => state.user.error);
+  const navigate = useNavigate();
+  if (error) {
+    setMessage(error);
+  }
+  if (error === null) {
+    navigate('/doctors');
+  }
 
   const handleSignup = async () => {
-    dispatch(getUsers(name, username));
-    if (!error) {
-      setMessage('User created successfully');
-    }
+    dispatch(createUsers({ name, username }));
     localStorage.setItem('user', JSON.stringify(username));
     setName('');
     setUsername('');
