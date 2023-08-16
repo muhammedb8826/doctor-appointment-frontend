@@ -15,8 +15,8 @@
 
 .navigations.active {
   display: block;
-  background-color: var(--main-color-green);
-  position: absolute;
+  background-color: var(--main-color-gray);
+  position: fixed;
   top: 50px;
   height: calc(100vh - 50px);
   border-top-right-radius: 25px;
@@ -52,8 +52,7 @@
   width: 100%;
   height: 100%;
   font-weight: bold;
-  color: var(--main-color-gray);
-  background-color: var(--main-color-black);
+  color: var(--main-color-green);
 }
 
 .inactive-link {
@@ -92,6 +91,7 @@
     width: 220px;
     height: 100vh;
     border-right: 1px solid var(--main-color-gray);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 1em;
     padding-right: 0;
   }
@@ -124,6 +124,7 @@
   }
 
   .nav-item a.active-link {
+    color: var(--main-color-gray);
     background-color: var(--main-color-green);
   }
 }

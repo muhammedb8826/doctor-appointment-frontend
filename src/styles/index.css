@@ -1,6 +1,6 @@
 :root {
   --main-color-green: #97bf0f;
-  --main-color-gray: #f1f1f1;
+  --main-color-gray: #efefef;
   --main-color-black: #070707;
 }
 
@@ -29,34 +29,117 @@
 
 .container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
 }
 
 .doctors {
   display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  list-style: none;
+  width: 100%;
+}
+
+.doctor a {
+  text-decoration: none;
+  color: var(--main-color-black);
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  border: 1px solid blue;
   align-items: center;
 }
 
-.doctor {
-  width: 200px;
-  height: 200px;
-  border: 1px solid red;
-  margin: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.doctor a:hover {
+  text-decoration: underline;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.doctor img {
+  width: 100%;
+}
+
+.back-button,
+.next-button {
+  display: none;
+}
+
+.meet-our-doctor {
+  text-align: center;
+}
+
+.meet-our-doctor h2 {
+  font-size: 2em;
+  font-weight: 600;
+}
+
+.meet-our-doctor p {
+  font-size: 1em;
+  font-weight: 300;
+  color: gray;
 }
 
 @media (min-width: 768px) {
   .components {
+    padding-top: 2em;
     position: relative;
     top: 0;
     left: 220px;
     width: calc(100% - 220px);
-    height: 100%;
-    border: 1px solid red;
+  }
+
+  .container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .back-button,
+  .next-button {
+    position: fixed;
+    width: 55px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    cursor: pointer;
+    top: 50%;
+  }
+
+  .back-button {
+    left: 220px;
+    border: none;
+    outline: none;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: lightgray;
+  }
+
+  .next-button {
+    right: 0;
+    border: none;
+    outline: none;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    background-color: var(--main-color-green);
+  }
+
+  .next-button .play-icon {
+    color: #efefef;
+  }
+
+  .back-button .play-icon {
+    color: white;
+    rotate: 180deg;
+  }
+
+  .doctor {
+    width: 45%;
+    padding: 1em;
   }
 }

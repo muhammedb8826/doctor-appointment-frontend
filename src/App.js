@@ -5,6 +5,7 @@ import MyReservations from './components/MyReservations';
 import AddDoctors from './components/AddDoctors';
 import Reserve from './components/Reserve';
 import Delete from './components/Delete';
+import DoctorDetails from './components/DoctorDetails';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <div className="components">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/doctors/:id" element={<DoctorDetails />} />
           <Route path="/my-reservations" element={<MyReservations />} />
           <Route path="/add-doctors" element={<AddDoctors />} />
           <Route path="/reserve" element={<Reserve />} />

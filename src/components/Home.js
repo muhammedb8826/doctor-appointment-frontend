@@ -1,28 +1,52 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { LuPlay } from 'react-icons/lu';
+import { NavLink } from 'react-router-dom';
 import { getDoctors } from '../redux/doctors/doctorSlice';
 
 const Doctors = () => {
+  const [index, setIndex] = useState(0);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getDoctors());
   }, [dispatch]);
   const doctors = useSelector((state) => state.doctor.data);
+  const hasNext = index < doctors.length - 1;
+
+  const handleNextClick = () => {
+    if (hasNext) {
+      setIndex(index + 1);
+    } else {
+      setIndex(0);
+    }
+  };
 
   return (
 
     <section className="container">
-      <div className="meet-our-doctor">
-        <h2 className="text-center text-primary">Our Doctors</h2>
-        <h5 className="text-center">Meet Our Doctors</h5>
-      </div>
+      <button onClick={handleNextClick} type="button" className="next-button">
+        <LuPlay className="play-icon" />
+      </button>
 
+      <button onClick={handleNextClick} type="button" className="back-button">
+        <LuPlay className="play-icon" />
+      </button>
+
+      <div className="meet-our-doctor">
+        <h2>Our Doctors</h2>
+        <p>Meet Our Doctors</p>
+      </div>
       <ul className="doctors">
         {doctors.map((doctor) => (
           <li key={doctor.id} className="doctor">
-            <img src="logo.png" alt="" />
-            <h4>{doctor.name}</h4>
-            <p>+61 452 200 126</p>
+            <NavLink to={`/doctors/${doctor.id}`}>
+              <img src="logo.png" alt="" />
+              <h4>{doctor.name}</h4>
+              <p>+61 452 200 126</p>
+              <p>{doctor.email}</p>
+              <p>{doctor.speciality}</p>
+              <p>{doctor.location}</p>
+            </NavLink>
           </li>
         ))}
       </ul>
