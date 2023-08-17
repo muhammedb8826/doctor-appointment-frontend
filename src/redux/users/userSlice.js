@@ -19,9 +19,9 @@ export const createUsers = createAsyncThunk('users/getUsers', async ({ name, use
   }
 });
 
-export const getUsers = createAsyncThunk('users/getUsers', async () => {
+export const getUsers = createAsyncThunk('users/getUsers', async ({ username }) => {
   try {
-    const response = await axios.get(url);
+    const response = await axios.post('http://localhost:3000/api/v1/login', { username });
     return response.data;
   } catch (error) {
     error.message = 'Username already exists';
@@ -45,6 +45,19 @@ const userSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
+
+    [getUsers.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [getUsers.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.data = action.payload;
+    },
+    [getUsers.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    }
+    ,
   },
 });
 

@@ -1,25 +1,22 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { getUsers } from '../redux/users/userSlice';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [message, setMessage] = useState('');
   const users = useSelector((state) => state.user.data);
-  const error = useSelector((state) => state.user.error);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  if (error) {
-    setMessage(error);
-  }
-  if (error === null) {
-    navigate('/doctors');
-  }
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    dispatch(getUsers({ username }));
 
-  const handleLogin = async () => {
-    const user = users.find((user) => user.username === username);
-    if (user) {
-      localStorage.setItem('user', JSON.stringify(user));
+    if (users.message === 'Login successful') {
+      localStorage.setItem('user', JSON.stringify(username));
+      navigate('/doctors');
       setUsername('');
     } else {
       setMessage('Username does not exist');
@@ -29,8 +26,10 @@ const Login = () => {
   return (
     <div>
       <h2>Login</h2>
-      <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-      <button onClick={handleLogin} type="button">Login</button>
+      <form onSubmit={handleLogin}>
+        <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+        <button onClick={handleLogin} type="button">Login</button>
+      </form>
       <p>{message}</p>
     </div>
   );

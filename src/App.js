@@ -6,6 +6,7 @@ import AddDoctors from './components/AddDoctors';
 import Reserve from './components/Reserve';
 import Delete from './components/Delete';
 import DoctorDetails from './components/DoctorDetails';
+import Login from './auth/Login';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Navbar />
       <div className="components">
         <Routes>
+          <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
           <Route path="/doctors" element={<Home />} />
           <Route path="/doctors/:id" element={<DoctorDetails />} />
