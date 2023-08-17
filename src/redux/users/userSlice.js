@@ -14,7 +14,6 @@ export const createUsers = createAsyncThunk('users/getUsers', async ({ name, use
     const response = await axios.post(url, { name, username });
     return response.data;
   } catch (error) {
-    error.message = 'Username already exists';
     return error.message;
   }
 });
@@ -24,7 +23,7 @@ export const getUsers = createAsyncThunk('users/getUsers', async ({ username }) 
     const response = await axios.post('http://localhost:3000/api/v1/login', { username });
     return response.data;
   } catch (error) {
-    error.message = 'Username already exists';
+    error.message = 'Username does not exist';
     return error.message;
   }
 });

@@ -22,7 +22,7 @@ const SignUp = () => {
   };
 
   return (
-    <div>
+    <div className="login-container">
       <h2>Signup</h2>
       <form onSubmit={handleSignup}>
         <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />

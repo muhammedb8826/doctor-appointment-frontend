@@ -1,0 +1,66 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 2em;
+}
+
+.login-container h2 {
+  font-size: 2em;
+  font-weight: 600;
+}
+
+.login-container p {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.login-container form input {
+  width: 50%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--main-color-black);
+  border-radius: 5px;
+}
+
+.login-container form button {
+  width: 50%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--main-color-black);
+  border-radius: 5px;
+  background-color: var(--main-color-green);
+  color: var(--main-color-gray);
+  font-weight: 600;
+}
+
+.login-container form button:hover {
+  background-color: var(--main-color-white);
+  color: var(--main-color-black);
+  cursor: pointer;
+}
+
+.login-container a {
+  text-decoration: none;
+  color: var(--main-color-green);
+  font-weight: 600;
+}
+
+.login-container a:hover {
+  text-decoration: underline;
+}
+
+.login-container .error {
+  color: red;
+  font-size: 0.8em;
+  font-weight: 600;
+}

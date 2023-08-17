@@ -1,0 +1,49 @@
+.add-doctors-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 2em;
+}
+
+.add-doctors-container h2 {
+  font-size: 2em;
+  font-weight: 600;
+}
+
+.add-doctors-container p {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.add-doctors-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.add-doctors-container form input {
+  width: 50%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--main-color-black);
+  border-radius: 5px;
+}
+
+.add-doctors-container form button {
+  width: 50%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--main-color-black);
+  border-radius: 5px;
+  background-color: var(--main-color-green);
+  color: var(--main-color-gray);
+  font-weight: 600;
+}
+
+.add-doctors-container form button:hover {
+  background-color: var(--main-color-white);
+  color: var(--main-color-black);
+  cursor: pointer;
+}
