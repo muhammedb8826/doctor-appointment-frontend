@@ -27,7 +27,7 @@ const SignUp = () => {
       <form onSubmit={handleSignup}>
         <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
         <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-        <button onClick={handleSignup} type="button">Signup</button>
+        <button onClick={handleSignup} type="submit">Signup</button>
         <p>{message}</p>
       </form>
     </div>

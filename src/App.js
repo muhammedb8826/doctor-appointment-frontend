@@ -7,15 +7,16 @@ import Reserve from './components/Reserve';
 import Delete from './components/Delete';
 import DoctorDetails from './components/DoctorDetails';
 import Login from './auth/Login';
+import SignUp from './auth/signUp';
 
 function App() {
   return (
-
     <div className="App">
       <Navbar />
       <div className="components">
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/" element={<Home />} />
           <Route path="/doctors" element={<Home />} />
           <Route path="/doctors/:id" element={<DoctorDetails />} />
