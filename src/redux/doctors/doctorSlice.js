@@ -14,6 +14,11 @@ export const getDoctors = createAsyncThunk('users/getDoctors', async () => {
   return response.data;
 });
 
+export const getDoctor = createAsyncThunk('user/getDoctor', async (id) => {
+  const response = await axios.get(`http://localhost:3000/api/v1/doctors/${id}`);
+  return response.data;
+});
+
 export const addDoctor = createAsyncThunk('users/createDoctor', async ({
   name, description, specialization, imageUrl, cost,
 }) => {
@@ -63,6 +68,17 @@ const doctorSlice = createSlice({
       state.data = action.payload;
     },
     [deleteDoctor.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
+    [getDoctor.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [getDoctor.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.data = action.payload;
+    },
+    [getDoctor.rejected]: (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
     }

@@ -1,0 +1,53 @@
+.delete-doctor {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: calc(100vh - 80px);
+  padding: 0 2rem;
+}
+
+.delete-doctor h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.delete-doctor ul {
+  width: 75%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.delete-doctor ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.delete-doctor ul li p {
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.delete-doctor ul li button {
+  background: #f44336;
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.delete-doctor ul li button:hover {
+  background: #ff5722;
+}

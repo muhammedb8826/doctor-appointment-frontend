@@ -1,12 +1,18 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { LuPlay } from 'react-icons/lu';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import Logout from '../auth/Logout';
+import { getDoctors } from '../redux/doctors/doctorSlice';
 
 const Doctors = () => {
   const navigat = useNavigate();
-  const doctors = useSelector((state) => state.doctor.data.data);
   const localStorageToken = localStorage.getItem('user');
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getDoctors());
+  }, [dispatch]);
+  const doctors = useSelector((state) => state.doctor.data.data);
 
   const login = () => {
     if (localStorageToken) {
@@ -32,7 +38,7 @@ const Doctors = () => {
         <p>Meet Our Doctors</p>
       </div>
       <ul className="doctors">
-        { doctors?.map((doctor) => (
+        {Array.isArray(doctors) && doctors?.map((doctor) => (
           <li key={doctor.id} className="doctor">
             <NavLink to={`/doctors/${doctor.id}`}>
               <img src={`${doctor.image_url}`} alt={`${doctor.name}`} />

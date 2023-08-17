@@ -1,0 +1,33 @@
+.doctor-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: calc(100vh - 80px);
+  padding: 0 2rem;
+}
+
+.doctor-details .doctor-image {
+  width: 60%;
+}
+
+.doctor-details .doctor-image img {
+  width: 100%;
+}
+
+.doctor-details .doctor-info {
+  width: 40%;
+  padding: 0 2rem;
+}
+
+.doctor-details .doctor-info h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.doctor-details .doctor-info p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
