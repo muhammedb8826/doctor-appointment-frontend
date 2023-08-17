@@ -30,6 +30,8 @@ const Login = () => {
         <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
         <button onClick={handleLogin} type="button">Login</button>
       </form>
+      <p>Don&apos;t have an account?</p>
+      <button type="button" onClick={() => navigate('/signup')}>Signup</button>
       <p>{message}</p>
     </div>
   );
