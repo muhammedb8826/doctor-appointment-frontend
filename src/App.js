@@ -9,6 +9,7 @@ import Delete from './components/Delete';
 import DoctorDetails from './components/DoctorDetails';
 import Login from './auth/Login';
 import SignUp from './auth/SignUp';
+import Logout from './auth/Logout';
 
 function App() {
   const loggedIn = useSelector((state) => state.user.isLoggedIn);
@@ -17,10 +18,9 @@ function App() {
     loggedIn ? (
       <div className="App">
         <Navbar />
+        <Logout />
         <div className="components">
           <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
             <Route path="/" element={<Home />} />
             <Route path="/doctors" element={<Home />} />
             <Route path="/doctors/:id" element={<DoctorDetails />} />

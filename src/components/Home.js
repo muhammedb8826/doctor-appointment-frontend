@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { LuPlay } from 'react-icons/lu';
 import { NavLink } from 'react-router-dom';
 import { useEffect } from 'react';
-import Logout from '../auth/Logout';
 import { getDoctors } from '../redux/doctors/doctorSlice';
 
 const Doctors = () => {
@@ -21,7 +20,6 @@ const Doctors = () => {
       <button type="button" className="back-button">
         <LuPlay className="play-icon" />
       </button>
-      <Logout />
       <div className="meet-our-doctor">
         <h2>Our Doctors</h2>
         <p>Meet Our Doctors</p>

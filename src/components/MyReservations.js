@@ -1,13 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { deleteReservation, getReservations } from '../redux/reservations/reservationSlice';
 import '../styles/reservationList.css';
 
 const MyReservations = () => {
   const dispatch = useDispatch();
   const username = localStorage.getItem('user');
-  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getReservations({ username }));
@@ -16,7 +14,6 @@ const MyReservations = () => {
 
   const handleDeleteReservation = async (reservationId) => {
     dispatch(deleteReservation(reservationId));
-    navigate('/doctors');
   };
   return (
     <div className="reservation-list-container">
