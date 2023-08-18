@@ -81,6 +81,23 @@
   color: gray;
 }
 
+.logout-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1em;
+  padding: 1em;
+  border: none;
+  outline: none;
+  background-color: var(--main-color-green);
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 100px;
+  text-align: center;
+  z-index: 1;
+}
+
 @media (min-width: 768px) {
   .components {
     padding-top: 2em;
@@ -142,4 +159,11 @@
     width: 45%;
     padding: 1em;
   }
+}
+
+.no-doctors {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

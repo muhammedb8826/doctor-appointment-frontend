@@ -1,56 +1,62 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
 import { LuPlay } from 'react-icons/lu';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import Logout from '../auth/Logout';
 import { getDoctors } from '../redux/doctors/doctorSlice';
 
 const Doctors = () => {
-  const [index, setIndex] = useState(0);
+  const navigat = useNavigate();
+  const localStorageToken = localStorage.getItem('user');
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getDoctors());
   }, [dispatch]);
-  const doctors = useSelector((state) => state.doctor.data);
-  const hasNext = index < doctors.length - 1;
+  const doctors = useSelector((state) => state.doctor.data.data);
 
-  const handleNextClick = () => {
-    if (hasNext) {
-      setIndex(index + 1);
-    } else {
-      setIndex(0);
+  const login = () => {
+    if (localStorageToken) {
+      return true;
     }
+    navigat('/login');
+    return false;
   };
 
   return (
-
+    login() && (
     <section className="container">
-      <button onClick={handleNextClick} type="button" className="next-button">
+      <button type="button" className="next-button">
         <LuPlay className="play-icon" />
       </button>
 
-      <button onClick={handleNextClick} type="button" className="back-button">
+      <button type="button" className="back-button">
         <LuPlay className="play-icon" />
       </button>
-
+      <Logout />
       <div className="meet-our-doctor">
         <h2>Our Doctors</h2>
         <p>Meet Our Doctors</p>
       </div>
       <ul className="doctors">
-        {doctors.map((doctor) => (
+        {Array.isArray(doctors) ? doctors?.map((doctor) => (
           <li key={doctor.id} className="doctor">
             <NavLink to={`/doctors/${doctor.id}`}>
-              <img src="logo.png" alt="" />
+              <img src={`${doctor.image_url}`} alt={`${doctor.name}`} />
               <h4>{doctor.name}</h4>
-              <p>+61 452 200 126</p>
-              <p>{doctor.email}</p>
-              <p>{doctor.speciality}</p>
-              <p>{doctor.location}</p>
+              <p>{doctor.specialization}</p>
+              <p>
+                $
+                {doctor.cost_per_session}
+                {' '}
+                /
+                Session
+              </p>
             </NavLink>
           </li>
-        ))}
+        )) : <h3 className="no-doctors">No Doctors Added</h3>}
       </ul>
     </section>
+    )
   );
 };
 
