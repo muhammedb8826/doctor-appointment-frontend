@@ -51,3 +51,10 @@
 .delete-doctor ul li button:hover {
   background: #ff5722;
 }
+
+.no-doctors {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

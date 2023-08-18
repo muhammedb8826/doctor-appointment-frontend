@@ -23,6 +23,7 @@ const Login = () => {
       localStorage.setItem('user', username);
       localStorage.setItem('id', id);
       navigate('/doctors');
+      window.location.reload();
     } else {
       setError(user);
     }

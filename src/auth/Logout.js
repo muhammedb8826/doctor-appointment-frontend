@@ -6,10 +6,10 @@ const Logout = () => {
     localStorage.removeItem('user');
     localStorage.removeItem('id');
     navigate('/login');
+    window.location.reload();
   };
   return (
     <button onClick={handleLogout} type="button" className="logout-button"> Logout </button>
-
   );
 };
 export default Logout;

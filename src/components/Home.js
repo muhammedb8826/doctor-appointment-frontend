@@ -38,17 +38,22 @@ const Doctors = () => {
         <p>Meet Our Doctors</p>
       </div>
       <ul className="doctors">
-        {Array.isArray(doctors) && doctors?.map((doctor) => (
+        {Array.isArray(doctors) ? doctors?.map((doctor) => (
           <li key={doctor.id} className="doctor">
             <NavLink to={`/doctors/${doctor.id}`}>
               <img src={`${doctor.image_url}`} alt={`${doctor.name}`} />
               <h4>{doctor.name}</h4>
               <p>{doctor.specialization}</p>
-              <p>{doctor.description}</p>
-              <p>{doctor.cost_per_session}</p>
+              <p>
+                $
+                {doctor.cost_per_session}
+                {' '}
+                /
+                Session
+              </p>
             </NavLink>
           </li>
-        ))}
+        )) : <h3 className="no-doctors">No Doctors Added</h3>}
       </ul>
     </section>
     )

@@ -160,3 +160,10 @@
     padding: 1em;
   }
 }
+
+.no-doctors {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

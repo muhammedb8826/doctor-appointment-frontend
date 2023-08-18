@@ -17,7 +17,7 @@ const DoctorDetails = () => {
   const handeleReserve = () => {
     navigate('/reserve');
   };
-
+  console.log(doctor);
   return (
     <div className="doctor-details-container">
       <div className="doctor-image-container">
