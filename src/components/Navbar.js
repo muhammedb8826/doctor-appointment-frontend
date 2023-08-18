@@ -1,14 +1,15 @@
 import { NavLink } from 'react-router-dom';
 import '../styles/navbar.css';
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getDoctors } from '../redux/doctors/doctorSlice';
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  const doctor = useSelector((state) => state.doctor.data.data);
   useEffect(() => {
     dispatch(getDoctors());
-  }, [dispatch]);
+  }, [dispatch, doctor]);
 
   const [toggle, setToggle] = useState(false);
   const togglMenu = () => {
@@ -31,28 +32,32 @@ const Navbar = () => {
           <span className="bar" />
         </button>
         <ul className={`navigations ${toggle === true ? 'active' : ''}`}>
-          <li className="nav-item">
-            <NavLink to="/" exact className={({ isActive }) => (isActive ? 'active-link' : 'inactive-link')} onClick={togglMenu}>DOCTORS</NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink to="/my-reservations" className={({ isActive }) => (isActive ? 'active-link' : 'inactive-link')} onClick={togglMenu}>MY RESERVATIONS</NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink to="/add-doctors" className={({ isActive }) => (isActive ? 'active-link' : 'inactive-link')} onClick={togglMenu}>ADD DOCTORS</NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink to="/reserve" className={({ isActive }) => (isActive ? 'active-link' : 'inactive-link')} onClick={togglMenu}>RESERVE</NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink to="/delete" className={({ isActive }) => (isActive ? 'active-link' : 'inactive-link')} onClick={togglMenu}>DELETE DOCTORS</NavLink>
-          </li>
+          {login() && (
+            <>
+              <li className="nav-item">
+                <NavLink to="/" exact className={({ isActive }) => (isActive ? 'active-link' : 'inactive-link')} onClick={togglMenu}>DOCTORS</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/my-reservations" className={({ isActive }) => (isActive ? 'active-link' : 'inactive-link')} onClick={togglMenu}>MY RESERVATIONS</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/add-doctors" className={({ isActive }) => (isActive ? 'active-link' : 'inactive-link')} onClick={togglMenu}>ADD DOCTORS</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/reserve" className={({ isActive }) => (isActive ? 'active-link' : 'inactive-link')} onClick={togglMenu}>RESERVE</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/delete" className={({ isActive }) => (isActive ? 'active-link' : 'inactive-link')} onClick={togglMenu}>DELETE DOCTORS</NavLink>
+              </li>
+            </>
+          )}
           {!login() && (
             <>
               <li className="nav-item">
-                <NavLink to="/signup" className={({ isActive }) => (isActive ? 'active-link' : 'inactive-link')}>SIGN UP</NavLink>
+                <NavLink to="/signup" className={({ isActive }) => (isActive ? 'active-link' : 'inactive-link')} onClick={togglMenu}>SIGN UP</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/login" className={({ isActive }) => (isActive ? 'active-link' : 'inactive-link')}>LOGIN</NavLink>
+                <NavLink to="/login" className={({ isActive }) => (isActive ? 'active-link' : 'inactive-link')} onClick={togglMenu}>LOGIN</NavLink>
               </li>
             </>
           )}
