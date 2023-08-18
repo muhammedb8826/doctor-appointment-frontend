@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { addReservations } from '../redux/reservations/reservationSlice';
 import { getDoctors } from '../redux/doctors/doctorSlice';
 import '../styles/reservations.css';
 
 const Reserve = () => {
+  const navigate = useNavigate();
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [city, setCity] = useState('');
@@ -16,7 +18,7 @@ const Reserve = () => {
     dispatch(getDoctors());
   }, [dispatch]);
 
-  const doctors = useSelector((state) => state.doctor.data.data);
+  const doctors = useSelector((state) => state.doctor.data);
   const id = localStorage.getItem('id');
   const username = localStorage.getItem('user');
 
@@ -28,6 +30,7 @@ const Reserve = () => {
       dispatch(addReservations({
         startDate, endDate, city, cost, status, selectedDoctorId, id, username,
       }));
+      navigate('/my-reservations');
     }
   };
   return (
@@ -37,7 +40,7 @@ const Reserve = () => {
         <div className="select-option-container">
           <select value={selectedDoctorId} onChange={(e) => setSelectedDoctorId(e.target.value)} className="select-option">
             <option value="" className="option">Select a Doctor</option>
-            {Array.isArray(doctors) && doctors?.map((doctor) => (
+            {doctors.map((doctor) => (
               <option key={doctor.id} value={doctor.id}>{doctor.name}</option>
             ))}
           </select>

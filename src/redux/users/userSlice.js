@@ -3,6 +3,7 @@ import axios from 'axios';
 
 const initialState = {
   user: [],
+  isLoggedIn: localStorage.getItem('user'),
   isLoading: true,
   error: null,
 };
@@ -31,7 +32,11 @@ export const getUsers = createAsyncThunk('users/getUsers', async ({ username }) 
 const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {},
+  reducers: {
+    setUser: (state, action) => {
+      state.isLoggedIn = action.payload;
+    },
+  },
   extraReducers: {
     [createUsers.pending]: (state) => {
       state.isLoading = true;
@@ -61,3 +66,4 @@ const userSlice = createSlice({
 });
 
 export default userSlice.reducer;
+export const { setUser } = userSlice.actions;

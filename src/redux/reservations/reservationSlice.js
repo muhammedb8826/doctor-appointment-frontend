@@ -32,8 +32,8 @@ export const getReservations = createAsyncThunk('users/getReservations', async (
 });
 
 export const deleteReservation = createAsyncThunk('users/deleteReservation', async (id) => {
-  const response = await axios.delete(`http://localhost:3001/api/v1/reservations/${id}`);
-  return response.data;
+  await axios.delete(`http://localhost:3001/api/v1/reservations/${id}`);
+  return id;
 });
 
 const reservationSlice = createSlice({
@@ -46,7 +46,7 @@ const reservationSlice = createSlice({
     },
     [addReservations.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.data = action.payload;
+      state.data.push(action.payload);
     },
     [addReservations.rejected]: (state, action) => {
       state.isLoading = false;
@@ -68,7 +68,7 @@ const reservationSlice = createSlice({
     },
     [deleteReservation.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.data = action.payload;
+      state.data = state.data.filter((reservation) => reservation.id !== action.payload);
     },
     [deleteReservation.rejected]: (state, action) => {
       state.isLoading = false;

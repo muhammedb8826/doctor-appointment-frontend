@@ -8,22 +8,21 @@ const Delete = () => {
   useEffect(() => {
     dispatch(getDoctors());
   }, [dispatch]);
-  const doctors = useSelector((state) => state.doctor.data.data);
+  const doctors = useSelector((state) => state.doctor.data);
   const handleDeleteDoctor = (id) => {
     dispatch(deleteDoctor(id));
-    window.location.reload();
   };
 
   return (
     <div className="delete-doctor">
       <h2>Doctor List</h2>
       <ul>
-        { Array.isArray(doctors) ? doctors?.map((doctor) => (
+        { doctors.map((doctor) => (
           <li key={doctor.id}>
             <p>{doctor.name}</p>
             <button type="button" onClick={() => handleDeleteDoctor(doctor.id)}>Delete</button>
           </li>
-        )) : <h3 className="no-doctors">Doctor list is Empty</h3>}
+        ))}
       </ul>
     </div>
   );

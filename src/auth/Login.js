@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getUsers } from '../redux/users/userSlice';
+import { getUsers, setUser } from '../redux/users/userSlice';
 import '../styles/login.css';
 
 const Login = () => {
@@ -22,8 +22,9 @@ const Login = () => {
       const { id } = user.data;
       localStorage.setItem('user', username);
       localStorage.setItem('id', id);
+      dispatch(setUser(username));
       navigate('/doctors');
-      window.location.reload();
+      // window.location.reload();
     } else {
       setError(user);
     }

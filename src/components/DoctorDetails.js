@@ -13,11 +13,10 @@ const DoctorDetails = () => {
     dispatch(getDoctor(id));
   }, [dispatch, id]);
 
-  const doctor = useSelector((state) => state.doctor.data.data);
+  const doctor = useSelector((state) => state.doctor.doctor);
   const handeleReserve = () => {
     navigate('/reserve');
   };
-  console.log(doctor);
   return (
     <div className="doctor-details-container">
       <div className="doctor-image-container">

@@ -3,6 +3,7 @@ import axios from 'axios';
 
 const initialState = {
   data: [],
+  doctor: {},
   isLoading: true,
   error: null,
 };
@@ -29,8 +30,8 @@ export const addDoctor = createAsyncThunk('users/createDoctor', async ({
 });
 
 export const deleteDoctor = createAsyncThunk('users/deleteDoctor', async (id) => {
-  const response = await axios.delete(`http://localhost:3001/api/v1/doctors/${id}`);
-  return response.data;
+  await axios.delete(`http://localhost:3001/api/v1/doctors/${id}`);
+  return id;
 });
 
 const doctorSlice = createSlice({
@@ -54,7 +55,7 @@ const doctorSlice = createSlice({
     },
     [addDoctor.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.data = action.payload;
+      state.data.push(action.payload);
     },
     [addDoctor.rejected]: (state, action) => {
       state.isLoading = false;
@@ -65,7 +66,7 @@ const doctorSlice = createSlice({
     },
     [deleteDoctor.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.data = action.payload;
+      state.data = state.data.filter((doctor) => doctor.id !== action.payload);
     },
     [deleteDoctor.rejected]: (state, action) => {
       state.isLoading = false;
@@ -76,7 +77,7 @@ const doctorSlice = createSlice({
     },
     [getDoctor.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.data = action.payload;
+      state.doctor = action.payload;
     },
     [getDoctor.rejected]: (state, action) => {
       state.isLoading = false;
