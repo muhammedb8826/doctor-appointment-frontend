@@ -10,16 +10,18 @@ const Login = () => {
   const [error, setError] = useState('');
 
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user.data);
-
   useEffect(() => {
     dispatch(getUsers({ username }));
   }, [dispatch, username]);
 
+  const user = useSelector((state) => state.user.data);
+
   const handleLogin = async (e) => {
     e.preventDefault();
     if (user?.message === 'Login successful') {
+      const { id } = user.data;
       localStorage.setItem('user', username);
+      localStorage.setItem('id', id);
       navigate('/doctors');
     } else {
       setError(user);
