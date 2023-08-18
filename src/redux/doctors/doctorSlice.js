@@ -7,7 +7,7 @@ const initialState = {
   error: null,
 };
 
-const url = 'http://localhost:3000/api/v1/doctors';
+const url = 'http://localhost:3001/api/v1/doctors';
 
 export const getDoctors = createAsyncThunk('users/getDoctors', async () => {
   const response = await axios.get(url);
@@ -15,21 +15,21 @@ export const getDoctors = createAsyncThunk('users/getDoctors', async () => {
 });
 
 export const getDoctor = createAsyncThunk('user/getDoctor', async (id) => {
-  const response = await axios.get(`http://localhost:3000/api/v1/doctors/${id}`);
+  const response = await axios.get(`http://localhost:3001/api/v1/doctors/${id}`);
   return response.data;
 });
 
 export const addDoctor = createAsyncThunk('users/createDoctor', async ({
   name, description, specialization, imageUrl, cost,
 }) => {
-  const response = await axios.post('http://localhost:3000/api/v1/doctors', {
+  const response = await axios.post('http://localhost:3001/api/v1/doctors', {
     name, description, specialization, image_url: imageUrl, cost_per_session: cost,
   });
   return response.data;
 });
 
 export const deleteDoctor = createAsyncThunk('users/deleteDoctor', async (id) => {
-  const response = await axios.delete(`http://localhost:3000/api/v1/doctors/${id}`);
+  const response = await axios.delete(`http://localhost:3001/api/v1/doctors/${id}`);
   return response.data;
 });
 

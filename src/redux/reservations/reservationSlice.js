@@ -7,7 +7,7 @@ const initialState = {
   error: null,
 };
 
-const url = 'http://localhost:3000/api/v1/reservations';
+const url = 'http://localhost:3001/api/v1/reservations';
 
 export const addReservations = createAsyncThunk('users/addReservations', async ({
   startDate, endDate, city, cost, status, selectedDoctorId, id, username,
@@ -27,12 +27,12 @@ export const addReservations = createAsyncThunk('users/addReservations', async (
 });
 
 export const getReservations = createAsyncThunk('users/getReservations', async ({ username }) => {
-  const response = await axios.get(`http://localhost:3000/api/v1/reservations?user_username=${username}`);
+  const response = await axios.get(`http://localhost:3001/api/v1/reservations?user_username=${username}`);
   return response.data;
 });
 
 export const deleteReservation = createAsyncThunk('users/deleteReservation', async (id) => {
-  const response = await axios.delete(`http://localhost:3000/api/v1/reservations/${id}`);
+  const response = await axios.delete(`http://localhost:3001/api/v1/reservations/${id}`);
   return response.data;
 });
 

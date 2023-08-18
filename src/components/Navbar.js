@@ -15,6 +15,13 @@ const Navbar = () => {
     setToggle((prev) => !prev);
   };
 
+  const login = () => {
+    if (localStorage.getItem('user')) {
+      return true;
+    }
+    return false;
+  };
+
   return (
     <header>
       <nav className="navbar">
@@ -39,6 +46,16 @@ const Navbar = () => {
           <li className="nav-item">
             <NavLink to="/delete" className={({ isActive }) => (isActive ? 'active-link' : 'inactive-link')} onClick={togglMenu}>DELETE DOCTORS</NavLink>
           </li>
+          {!login() && (
+            <>
+              <li className="nav-item">
+                <NavLink to="/signup" className={({ isActive }) => (isActive ? 'active-link' : 'inactive-link')}>SIGN UP</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/login" className={({ isActive }) => (isActive ? 'active-link' : 'inactive-link')}>LOGIN</NavLink>
+              </li>
+            </>
+          )}
         </ul>
       </nav>
     </header>

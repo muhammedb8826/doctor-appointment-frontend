@@ -7,7 +7,7 @@ import Reserve from './components/Reserve';
 import Delete from './components/Delete';
 import DoctorDetails from './components/DoctorDetails';
 import Login from './auth/Login';
-import SignUp from './auth/signUp';
+import SignUp from './auth/SignUp';
 
 function App() {
   return (
@@ -24,6 +24,8 @@ function App() {
           <Route path="/add-doctors" element={<AddDoctors />} />
           <Route path="/reserve" element={<Reserve />} />
           <Route path="/delete" element={<Delete />} />
+          <Route path="/singup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </div>
