@@ -1,82 +1,65 @@
-<a id="readme-top"></a>
+<!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
 
-- [📗 Table of Contents](#-table-of-contents)
-- [📖 Doctor appointment ](#-doctor-appointment-)
-  - [🛠 Built With ](#-built-with-)
-    - [Tech Stack ](#tech-stack-)
-    - [Key Features ](#key-features-)
-  - [💻 Getting Started ](#-getting-started-)
-    - [Prerequisites](#prerequisites)
-    - [Setup](#setup)
-    - [Install](#install)
-    - [Usage](#usage)
-    - [Run tests](#run-tests)
-    - [Deployment](#deployment)
-  - [👥 Authors ](#-authors-)
-  - [🔭 Future Features ](#-future-features-)
-  - [🤝 Contributing ](#-contributing-)
-  - [⭐️ Show your support ](#️-show-your-support-)
-  - [🙏 Acknowledgments ](#-acknowledgments-)
-  - [📝 License ](#-license-)
+- [📖 About the Project](#about-project)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)
+- [💻 Getting Started](#getting-started)
+  - [Setup](#setup)
+  - [Prerequisites](#prerequisites)
+  - [Install](#install)
+  - [Usage](#usage)
+- [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Doctor appointment <a id="about-project"></a>
+# 📖 Doctor Appointment <a name="about-project"></a>
 
-> This is an application that use to make an appointements for a doctor visit. It can add many users and users can selected the doctor they choose. Also users can add doctor and can make reservations and can delete reservations and doctors.
+**Doctor Appointment ** The Doctor Appointment Web App is a convenient and easy-to-use tool that allows you to find and book appointments with doctors.
 
-**Rails back-end Link**
-<a href="https://github.com/getssh/Doctors_appointment">Rails Back End Link</a>
-## 🛠 Built With <a id="built-with"></a>
+## This is only the frontend, the backend is in [this repo](https://github.com/getssh/Doctors_appointment)
 
-### Tech Stack <a id="tech-stack"></a>
+## 🛠 Built With <a name="built-with"></a>
 
-> HTML & SCSS
-> ReactJs
-> Redux-toolkit
-> Webpack
-> Ruby on Rails
+### Tech Stack <a name="tech-stack"></a>
 
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="#">ReactJs</a></li>
+   <li>HTML</li>
+   <li>CSS</li>
+   <li>Javascript</li>
+   <li>React Js</li>
   </ul>
 </details>
 
 <details>
   <summary>Server</summary>
   <ul>
-    <li><a href="#">Ruby on Rails</a></li>
-    <li><a href="#">redux</a></li>
+    <li>Ruby on Rails</li>
   </ul>
 </details>
 
 <details>
-  <summary>Databse</summary>
+<summary>Database</summary>
   <ul>
-    <li><a href="#">Postgresql</a></li>
+    <li>Postgresql</li>
   </ul>
 </details>
 
+
 <!-- Features -->
 
-### Key Features <a id="key-features"></a>
+### Key Features <a name="key-features"></a>
 
-- Displaying of random greeting
-- Change greeting on very reload
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LIVE DEMO -->
-
-<!-- ## 🚀 Live Demo <a id="live-demo"></a>
-
-
-- [N/A](N/A) -->
-
+- **Beautiful UI**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -86,43 +69,49 @@
 
 To get a local copy up and running, follow these steps.
 
-### Prerequisites
-
-In order to run this project you need:
-
-- Node js in your local environment
-
 ### Setup
 
-Clone this repository to your desired folder:
+Clone the repo into your local machine:
 
-git clone https://github.com/muhammedb8826/doctor-appointment-frontend
+```bash
+git clone https://github.com/muhammedb8826/doctor-appointment-frontend.git
+```
 
-cd doctor-appointment-frontend
+### Prerequisites
+
+In order to run this project you need to:
+
+- Install [Git](https://git-scm.com/)
+- Install [Node](https://nodejs.org/en/)
+- Install a code editor, I suggest [VsCode](https://code.visualstudio.com/)
 
 ### Install
 
-Install this project with:
+To install the dependencies run the following command
 
+```bash
 npm install
+```
 
 ### Usage
 
+To start the project execute this command
+
+```bash
 npm start
+```
 
-### Run tests
-
-npm test
-
-### Deployment
-
-npm run build
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right"><a href="#readme-top">👆</a></p>
 
 <!-- AUTHORS -->
 
-## 👥 Authors <a id="authors"></a>
+## 👥 Authors <a name="authors"></a>
+
+👤 **Muhammed B**
+
+- GitHub: [@githubhandle](https://github.com/muhammedb8826)
+- Twitter: [@twitterhandle](https://twitter.com/muhammedb8826)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/muhammedb8826/)
 
 👤 **Getayawkal Tamrat**
 
@@ -130,47 +119,46 @@ npm run build
 - Twitter: [@twitterhandle](https://twitter.com/GetayawkalT)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/getayawkal-tamrat/)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right"><a href="#readme-top">👆</a></p>
 
 <!-- FUTURE FEATURES -->
 
-## 🔭 Future Features <a id="future-features"></a>
+## 🔭 Future Features <a name="future-features"></a>
 
+- **Animations** :eyes:
 
-- More animation and intractive rendering
+<p align="right"><a href="#readme-top">👆</a></p>
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!-- Contributing -->
 
-<!-- CONTRIBUTING -->
-
-## 🤝 Contributing <a id="contributing"></a>
+## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/muhammedb8826/doctor-appointment-frontend/issues/).
+Feel free to check the [issues page](../../issues/).
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right"><a href="#readme-top">👆</a></p>
 
-<!-- SUPPORT -->
+<!-- Show your support -->
 
-## ⭐️ Show your support <a id="support"></a>
+## ⭐️ Show your support <a name="support"></a>
 
-If you like this project please star this repo.
+If you like this project leave a start for it.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right"><a href="#readme-top">👆</a></p>
 
 <!-- ACKNOWLEDGEMENTS -->
 
-## 🙏 Acknowledgments <a id="acknowledgements"></a>
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank microverse inc. for helping me in my professional carreer. 
+I would like to thank Microverse for helping me in my journey to become a Fullstack developer 🌹
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right"><a href="#readme-top">👆</a></p>
 
 <!-- LICENSE -->
 
-## 📝 License <a id="license"></a>
+## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right"><a href="#readme-top">👆</a></p>
