@@ -7,28 +7,22 @@ import '../styles/login.css';
 const Login = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
-  const [error, setError] = useState('');
-
+  const { data: user, isLoading, error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getUsers({ username }));
-  }, [dispatch, username]);
 
-  const user = useSelector((state) => state.user.data);
+  useEffect(() => {
+    if (isLoading) return;
+    if (user) {
+      localStorage.setItem('user', user.username);
+      localStorage.setItem('id', user.id);
+      dispatch(setUser(user.username));
+      navigate('/doctors');
+    }
+  }, [dispatch, isLoading, navigate, user]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    if (user?.message === 'Login successful') {
-      const { id } = user.data;
-      localStorage.setItem('user', username);
-      localStorage.setItem('id', id);
-      dispatch(setUser(username));
-      navigate('/doctors');
-      // window.location.reload();
-    } else {
-      setError(user);
-    }
-
+    dispatch(getUsers({ username }));
     setUsername('');
   };
 
