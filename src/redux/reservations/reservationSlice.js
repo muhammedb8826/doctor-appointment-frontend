@@ -7,12 +7,12 @@ const initialState = {
   error: null,
 };
 
-const url = 'http://localhost:3001/api/v1/reservations';
+const url = 'http://localhost:3000/api/v1/reservations';
 
-export const addReservations = createAsyncThunk('users/getDoctors', async ({
+export const addReservations = createAsyncThunk('users/addReservations', async ({
   startDate, endDate, city, cost, status, selectedDoctorId, id, username,
 }) => {
-  const response = await axios.get(url, {
+  const response = await axios.post(url, {
     start_date: startDate,
     end_date: endDate,
     city,
@@ -23,6 +23,16 @@ export const addReservations = createAsyncThunk('users/getDoctors', async ({
     user_username: username,
   });
 
+  return response.data;
+});
+
+export const getReservations = createAsyncThunk('users/getReservations', async ({ username }) => {
+  const response = await axios.get(`http://localhost:3000/api/v1/reservations?user_username=${username}`);
+  return response.data;
+});
+
+export const deleteReservation = createAsyncThunk('users/deleteReservation', async (id) => {
+  const response = await axios.delete(`http://localhost:3000/api/v1/reservations/${id}`);
   return response.data;
 });
 
@@ -39,6 +49,28 @@ const reservationSlice = createSlice({
       state.data = action.payload;
     },
     [addReservations.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
+    [getReservations.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [getReservations.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.data = action.payload;
+    },
+    [getReservations.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
+    [deleteReservation.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [deleteReservation.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.data = action.payload;
+    },
+    [deleteReservation.rejected]: (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
     }

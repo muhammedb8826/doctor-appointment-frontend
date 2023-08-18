@@ -17,12 +17,12 @@ const Reserve = () => {
   }, [dispatch]);
 
   const doctors = useSelector((state) => state.doctor.data.data);
+  const id = localStorage.getItem('id');
+  const username = localStorage.getItem('user');
 
-  const handleAddReservation = async () => {
+  const handleAddReservation = async (e) => {
+    e.preventDefault();
     const status = 'Pending';
-
-    const id = localStorage.getItem('id');
-    const username = localStorage.getItem('username');
 
     if (startDate && endDate && city && cost && selectedDoctorId) {
       dispatch(addReservations({
@@ -33,7 +33,7 @@ const Reserve = () => {
   return (
     <div className="reservation-container">
       <h2>Make Reservation</h2>
-      <form className="reservation-form">
+      <form className="reservation-form" onSubmit={handleAddReservation}>
         <div className="select-option-container">
           <select value={selectedDoctorId} onChange={(e) => setSelectedDoctorId(e.target.value)} className="select-option">
             <option value="" className="option">Select a Doctor</option>
