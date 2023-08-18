@@ -1,15 +1,15 @@
 import { NavLink } from 'react-router-dom';
 import '../styles/navbar.css';
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { getDoctors } from '../redux/doctors/doctorSlice';
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const doctor = useSelector((state) => state.doctor.data.data);
+  // const doctor = useSelector((state) => state.doctor.data.data);
   useEffect(() => {
     dispatch(getDoctors());
-  }, [dispatch, doctor]);
+  }, [dispatch]);
 
   const [toggle, setToggle] = useState(false);
   const togglMenu = () => {
