@@ -45,3 +45,10 @@
 .delete-button:hover {
   background-color: #c9302c;
 }
+
+.no-reservation {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

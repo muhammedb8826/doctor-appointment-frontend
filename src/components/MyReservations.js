@@ -24,7 +24,7 @@ const MyReservations = () => {
     <div className="reservation-list-container">
       <h2>Reservation List</h2>
       <ul className="reservation-list">
-        {Array.isArray(reservationsData) && reservationsData?.map((reservation) => (
+        {Array.isArray(reservationsData) ? reservationsData?.map((reservation) => (
           <li key={reservation.id} className="reservation-item">
             <span className="doctor-name">{reservation.doctor.name}</span>
             <span className="reservation-date">
@@ -43,7 +43,8 @@ const MyReservations = () => {
               Delete
             </button>
           </li>
-        ))}
+        ))
+          : <h3 className="no-reservation">No Reservation Created</h3>}
       </ul>
     </div>
   );
