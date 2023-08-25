@@ -1,9 +1,11 @@
 .doctor-details-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   width: 100%;
   padding: 20px;
   border-radius: 5px;
+  padding-top: 5em;
 }
 
 .doctor-image-container {
@@ -47,4 +49,15 @@
 
 .reserve-btn:hover {
   cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .doctor-details-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    border-radius: 5px;
+  }
 }
