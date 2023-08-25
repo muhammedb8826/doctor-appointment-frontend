@@ -11,7 +11,7 @@ import Login from './auth/Login';
 import SignUp from './auth/SignUp';
 import Logout from './auth/Logout';
 
-function App() {
+const App = () => {
   const loggedIn = useSelector((state) => state.user.isLoggedIn);
 
   return (
@@ -42,6 +42,6 @@ function App() {
       </div>
     )
   );
-}
+};
 
 export default App;

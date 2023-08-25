@@ -8,7 +8,7 @@ const initialState = {
   error: null,
 };
 
-const url = 'http://localhost:3001/api/v1/users';
+const url = 'https://doc-app-acos.onrender.com/api/v1/users';
 
 export const createUsers = createAsyncThunk('users/getUsers', async ({ name, username }) => {
   try {
@@ -21,7 +21,7 @@ export const createUsers = createAsyncThunk('users/getUsers', async ({ name, use
 
 export const getUsers = createAsyncThunk('users/getUsers', async ({ username }) => {
   try {
-    const response = await axios.post('http://localhost:3001/api/v1/login', { username });
+    const response = await axios.post('https://doc-app-acos.onrender.com/api/v1/login', { username });
     return response.data;
   } catch (error) {
     error.message = 'Username does not exist';
