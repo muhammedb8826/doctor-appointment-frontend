@@ -1,0 +1,130 @@
+:root {
+  --main-color-green: #97bf0f;
+  --main-color-gray: #f1f1f1;
+  --main-color-black: #070707;
+}
+
+.logo img {
+  display: none;
+  width: 150px;
+}
+
+.navigations {
+  display: none;
+}
+
+.navigations.active {
+  display: block;
+  background-color: var(--main-color-gray);
+  position: fixed;
+  top: 50px;
+  height: calc(100vh - 50px);
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.nav-item {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-item a {
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.nav-item a:hover {
+  background-color: lightgray;
+}
+
+.nav-item a.active-link {
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  width: 100%;
+  height: 100%;
+  font-weight: bold;
+  color: var(--main-color-green);
+}
+
+.inactive-link {
+  color: var(--main-color-gray);
+}
+
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  padding: 0.5em;
+  border: none;
+  background: none;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 10px;
+  background-color: var(--main-color-black);
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100vh;
+    border-right: 1px solid var(--main-color-gray);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 1em;
+    padding-right: 0;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .logo img {
+    display: block;
+  }
+
+  .navigations {
+    margin-top: 4em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+  }
+
+  .navigations.active {
+    display: block;
+    background-color: transparent;
+    position: relative;
+    top: 0;
+    height: auto;
+  }
+
+  .nav-item a.active-link {
+    color: var(--main-color-gray);
+    background-color: var(--main-color-green);
+  }
+}
